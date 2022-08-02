@@ -20,7 +20,10 @@ curl --request PUT '${var.csp_endpoint}' \
 CURL
   }
 
-  depends_on = [google_project_iam_member.service_account_project_membership]
+  depends_on = [
+    google_project_iam_member.service_account_project_membership,
+    google_service_account_key.credentials,
+  ]
 }
 
 variable "csp_endpoint" {
